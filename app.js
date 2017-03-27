@@ -40,7 +40,7 @@ app.get("/secret", function(req, res){
 
 app.get("*", function(req, res){
     res.render("notfound");
-})
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The server is running : )");
