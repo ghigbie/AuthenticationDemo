@@ -5,6 +5,8 @@ const express               = require("express"),
       localStradtegy        = require("passport-local"),
       passportLocalMongoose = require("passport-local-mongoose");
       
+const User = require("./models/user");
+      
 const app = express();    
 mongoose.connect("mongodb://localhost/auth_demo_app");
 app.set("view engine", "ejs");
