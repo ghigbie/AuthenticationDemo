@@ -1,6 +1,8 @@
-var express = require("express");
+var express  = require("express"),
+    mongoose = require("mongoose");
 
 var app = express();
+mongoose.connect("mongodb://localhost/auth_demo_app");
 app.set("view engine", "ejs");
 
 //root route
