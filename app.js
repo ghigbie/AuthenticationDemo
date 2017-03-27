@@ -21,6 +21,9 @@ app.use(require("express-session")({
 app.use(passport.initialize()); //this line is needed for passport
 app.use(passport.session()); //this line is needed for passport
 
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 //root route
 app.get("/", function(req, res){
     res.render("home");
