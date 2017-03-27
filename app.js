@@ -11,6 +11,13 @@ mongoose.connect("mongodb://localhost/auth_demo_app");
 
 const app = express();    
 app.set("view engine", "ejs");
+
+app.use(require("express-session")({
+    secret: "Rusty is the best dog ever",
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use(passport.initialize()); //this line is needed for passport
 app.use(passport.session()); //this line is needed for passport
 
