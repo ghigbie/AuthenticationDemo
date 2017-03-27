@@ -12,7 +12,7 @@ mongoose.connect("mongodb://localhost/auth_demo_app");
 const app = express();    
 app.set("view engine", "ejs");
 
-app.user(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(require("express-session")({
     secret: "Rusty is the best dog ever",
     resave: false,
