@@ -18,11 +18,16 @@ app.use(require("express-session")({
     saveUninitialized: false
 }));
 
-app.use(passport.initialize()); //this line is needed for passport
-app.use(passport.session()); //this line is needed for passport
+//these lines are needed to use passport
+app.use(passport.initialize()); 
+app.use(passport.session()); 
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+//===============================================
+//ROUTES
+//==============================================
 
 //root route
 app.get("/", function(req, res){
@@ -32,6 +37,10 @@ app.get("/", function(req, res){
 app.get("/secret", function(req, res){
     res.render("secret");
 });
+
+app.get("*", function(req, res){
+    res.render("notfound");
+})
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The server is running : )");
