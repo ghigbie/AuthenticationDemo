@@ -38,6 +38,13 @@ app.get("/secret", function(req, res){
     res.render("secret");
 });
 
+//AUTH ROUTES
+
+//show sign up form
+app.get("/register", function(req, res){
+   res.render("register"); 
+});
+
 app.get("*", function(req, res){
     res.render("notfound");
 });
