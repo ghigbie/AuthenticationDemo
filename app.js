@@ -1,12 +1,12 @@
-var express               = require("express"),
-    mongoose              = require("mongoose"),
-    passport              = require("passport"),
-    bodyParser            = require("body-parser"),
-    localStradtegy        = require("passport-local"),
-    passportLocalMongoose = require("passport-local-mongoose");
-    
+const express               = require("express"),
+      mongoose              = require("mongoose"),
+      passport              = require("passport"),
+      bodyParser            = require("body-parser"),
+      localStradtegy        = require("passport-local"),
+      passportLocalMongoose = require("passport-local-mongoose");
+      
+const app = express();    
 mongoose.connect("mongodb://localhost/auth_demo_app");
-var app = express();
 app.set("view engine", "ejs");
 
 //root route
