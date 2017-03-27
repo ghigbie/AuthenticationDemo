@@ -6,10 +6,13 @@ const express               = require("express"),
       passportLocalMongoose = require("passport-local-mongoose");
       
 const User = require("./models/user");
-      
+
+mongoose.connect("mongodb://localhost/auth_demo_app");      
+
 const app = express();    
-mongoose.connect("mongodb://localhost/auth_demo_app");
 app.set("view engine", "ejs");
+app.use(passport.initialize()); //this line is needed for passport
+app.use(passport.session()); //this line is needed for passport
 
 //root route
 app.get("/", function(req, res){
