@@ -47,8 +47,6 @@ app.get("/register", function(req, res){
 });
 //handling user sign up
 app.post("/register", function(req, res){
-    req.body.username;
-    req.body.password;
     User.register(new User({username: req.body.username}), req.body.password, function(err, user){
         if(err){
             console.log("SOMETHING WENT WRONG WITH USER REGISTRATION (POST /register");
@@ -65,6 +63,10 @@ app.post("/register", function(req, res){
 //show login form
 app.get("/login", function(req, res){
     res.render("login");
+});
+
+app.post("/login", function(req, res){
+    
 });
 
 
