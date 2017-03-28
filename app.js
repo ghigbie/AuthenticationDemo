@@ -73,6 +73,11 @@ app.post("/login", passport.authenticate("local", {
 }), function(req, res){
 });
 
+//LOGOUT ROUTE
+app.get("/logout", function(req, res){
+    res.send("OK I will log you out");
+});
+
 
 app.get("*", function(req, res){
     res.render("notfound");
