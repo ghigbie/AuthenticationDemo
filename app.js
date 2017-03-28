@@ -2,7 +2,7 @@ const express               = require("express"),
       mongoose              = require("mongoose"),
       passport              = require("passport"),
       bodyParser            = require("body-parser"),
-      localStradtegy        = require("passport-local"),
+      LocalStrategy        = require("passport-local"),
       passportLocalMongoose = require("passport-local-mongoose");
       
 const User = require("./models/user");
@@ -23,6 +23,7 @@ app.use(require("express-session")({
 app.use(passport.initialize()); 
 app.use(passport.session()); 
 
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -65,8 +66,11 @@ app.get("/login", function(req, res){
     res.render("login");
 });
 
-app.post("/login", function(req, res){
-    
+//login logic  --passport.authentication is middleware-- 
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/secret",
+    failureRedirect: "/login"
+}), function(req, res){
 });
 
 
