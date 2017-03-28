@@ -80,7 +80,8 @@ app.get("/logout", function(req, res){
 
 
 app.get("*", function(req, res){
-    res.render("notfound");
+    req.logout(); //this is the simple way to log a user out
+    res.redirect("/");
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
