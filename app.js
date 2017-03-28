@@ -73,15 +73,15 @@ app.post("/login", passport.authenticate("local", {
 }), function(req, res){
 });
 
-//LOGOUT ROUTE
+//LOGOUT ROUT
 app.get("/logout", function(req, res){
-    res.send("OK I will log you out");
+    req.logout(); //passport makes this a very easy way to log out
+    res.redirect("/");
 });
 
 
 app.get("*", function(req, res){
-    req.logout(); //this is the simple way to log a user out
-    res.redirect("/");
+    res.render("notfound");
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
