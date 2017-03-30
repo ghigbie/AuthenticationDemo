@@ -1,3 +1,3 @@
-#Authentication Demo
+Authentication Demo
 
 This repo is practice with authentication
